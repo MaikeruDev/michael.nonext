@@ -55,14 +55,15 @@ export default function MichaelPortfolio() {
         <nav className="flex justify-between items-center max-w-6xl mx-auto">
           <Link href="/">
             <h1 className="text-2xl font-bold flex items-center space-x-2">
-              <span>Michael Prietl</span>
+              <span className='hidden sm:block'>Michael Prietl</span>
+              <span className='block sm:hidden'>MP</span>
             </h1>
           </Link>
           <ul className="flex space-x-6">
             <li><button onClick={() => scrollToSection(aboutRef)} className="hover:text-gray-300 transition-colors">About</button></li>
             <li><button onClick={() => scrollToSection(skillsRef)} className="hover:text-gray-300 transition-colors">Skills</button></li>
             <li><button onClick={() => scrollToSection(projectsRef)} className="hover:text-gray-300 transition-colors">Projects</button></li>
-            <li><button onClick={() => scrollToSection(techStacksRef)} className="hover:text-gray-300 transition-colors">Tech Stacks</button></li>
+            <li><button onClick={() => scrollToSection(techStacksRef)} className="hover:text-gray-300 transition-colors">Stacks</button></li>
             <li><button onClick={() => scrollToSection(contactRef)} className="hover:text-gray-300 transition-colors">Contact</button></li>
           </ul>
         </nav>
