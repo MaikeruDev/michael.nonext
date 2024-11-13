@@ -1,113 +1,221 @@
-import Image from 'next/image'
+"use client"
 
-export default function Home() {
+import { useRef, useEffect } from 'react'
+import { motion } from 'framer-motion'
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
+import { ChevronRight, Code, Palette, Database, Server, Cpu, Globe } from 'lucide-react'
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import Link from 'next/link' 
+
+export default function MichaelPortfolio() {
+  const aboutRef = useRef<HTMLDivElement>(null)
+  const skillsRef = useRef<HTMLDivElement>(null)
+  const projectsRef = useRef<HTMLDivElement>(null)
+  const techStacksRef = useRef<HTMLDivElement>(null)
+  const contactRef = useRef<HTMLDivElement>(null)
+
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const skills = [
+    { name: 'Frontend Development', icon: <Code className="w-6 h-6" />, description: 'Crafting responsive and interactive user interfaces' },
+    { name: 'Backend Development', icon: <Server className="w-6 h-6" />, description: 'Building robust server-side applications and APIs' },
+    { name: 'Database Management', icon: <Database className="w-6 h-6" />, description: 'Designing and optimizing database structures' },
+    { name: 'UI/UX Design', icon: <Palette className="w-6 h-6" />, description: 'Creating intuitive and visually appealing designs' },
+  ]
+
+  const projects = [
+    { name: 'nonext.io', description: 'Lead developer for our company website, showcasing our top projects and services.', tech: ['Next.js', 'Tailwind CSS', 'Three.js'], url: 'https://nonext.io' },
+    { name: 'KanaBuddy', description: 'Designed and developed a modern, responsive website for learning hiragana and katakana.', tech: ['Next.js', 'Tailwind CSS', 'motion'], url: 'https://kanabuddy.nonext.io' }, 
+  ]
+
+  const techStacks = [
+    { 
+      name: 'Languages', 
+      icon: <Code className="w-6 h-6" />, 
+      techs: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'C#', 'Python', 'SASS', 'LUA'] 
+    },
+    { 
+      name: 'Libraries & Frameworks', 
+      icon: <Globe className="w-6 h-6" />, 
+      techs: ['React', 'Next.js', 'Angular', 'Node.js', 'Express.js', 'Ionic', 'Unity', 'Three.js', 'Framer Motion', 'shadcn/ui'] 
+    },
+    { 
+      name: 'Databases & ORM', 
+      icon: <Database className="w-6 h-6" />, 
+      techs: ['MySQL', 'Firebase', 'Prisma'] 
+    }
+  ]
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+    <div className="bg-black text-white min-h-screen font-sans">
+      <header className="fixed top-0 left-0 right-0 z-50 p-4 bg-black/50 backdrop-blur-md">
+        <nav className="flex justify-between items-center max-w-6xl mx-auto">
+          <Link href="/">
+            <h1 className="text-2xl font-bold flex items-center space-x-2">
+              <span>Michael Prietl</span>
+            </h1>
+          </Link>
+          <ul className="flex space-x-6">
+            <li><button onClick={() => scrollToSection(aboutRef)} className="hover:text-gray-300 transition-colors">About</button></li>
+            <li><button onClick={() => scrollToSection(skillsRef)} className="hover:text-gray-300 transition-colors">Skills</button></li>
+            <li><button onClick={() => scrollToSection(projectsRef)} className="hover:text-gray-300 transition-colors">Projects</button></li>
+            <li><button onClick={() => scrollToSection(techStacksRef)} className="hover:text-gray-300 transition-colors">Tech Stacks</button></li>
+            <li><button onClick={() => scrollToSection(contactRef)} className="hover:text-gray-300 transition-colors">Contact</button></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main className="pt-20">
+        <section className="py-20 px-4 relative overflow-hidden">
+          <div className="max-w-4xl mx-auto text-center relative z-10">
+            <motion.img
+              src="/maikeru.jpg"
+              alt="Michael Prietl"
+              className="w-40 h-40 rounded-full mx-auto mb-8"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
             />
-          </a>
-        </div>
-      </div>
+            <motion.h2
+              className="text-4xl font-bold mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              Michael Prietl
+            </motion.h2>
+            <motion.p
+              className="text-xl mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              Full-Stack Developer & UI/UX Designer at nonext
+            </motion.p>
+            <motion.div
+              className="flex justify-center space-x-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <a href="https://github.com/MaikeruDev" className="text-3xl hover:text-gray-300 transition-colors" aria-label="GitHub Profile"><FaGithub /></a>
+              <a href="https://www.linkedin.com/in/michael-prietl-93a6b625b/" className="text-3xl hover:text-gray-300 transition-colors" aria-label="LinkedIn Profile"><FaLinkedin /></a>
+              <a href="mailto:michael@prietl.com" className="text-3xl hover:text-gray-300 transition-colors" aria-label="Email Contact"><FaEnvelope /></a>
+            </motion.div>
+          </div> 
+        </section>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <section ref={aboutRef} className="py-20 px-4 bg-white text-black">
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-3xl font-bold mb-8 text-center">About Me</h3>
+            <div className="space-y-6">
+              <p>
+              Hello! I'm Michi, a passionate web developer with a flair for crafting sleek, functional, and user-friendly digital experiences. With a strong foundation in front-end and back-end development, I specialize in building websites and applications that not only work flawlessly but also look great.
+              </p>
+              <p>
+              At nonext, I take pride in pushing the limits of what web development can achieve. I blend modern technologies with intuitive design principles to deliver solutions that are as enjoyable to use as they are powerful.
+              </p>
+              <p>
+              I'm always eager to learn and grow. Whether it’s mastering a new framework or experimenting with the latest design trends, I stay on top of the ever-evolving tech landscape to keep my projects cutting-edge.
+              </p>
+              <p>
+              When I’m not coding or refining my designs, you’ll find me enjoying my other passions: I’m a big fan of cars, especially oldtimers, and love tinkering with or simply admiring them. I also like to kick back with some video games here and there—whether it's retro classics or the latest releases, gaming keeps me inspired and sharp.
+              </p> 
+            </div>
+          </div>
+        </section>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+        <section ref={skillsRef} className="py-20 px-4 bg-black">
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-3xl font-bold mb-12 text-center">Skills & Expertise</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {skills.map((skill, index) => (
+                <Card key={index} className="bg-black border-gray-700 text-white">
+                  <CardContent className="p-6">
+                    <div className="flex items-center mb-4">
+                      <div className="text-white">{skill.icon}</div>
+                      <h4 className="text-xl font-semibold ml-4">{skill.name}</h4>
+                    </div>
+                    <p className="text-gray-300">{skill.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+        <section ref={projectsRef} className="py-20 px-4 bg-white">
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-3xl font-bold mb-12 text-center text-black">Featured Projects</h3>
+            <div className="space-y-12">
+              {projects.map((project, index) => (
+                <Card key={index} className="rounded-lg shadow-sm bg-white text-black overflow-hidden border border-gray-200">
+                  <CardContent className="p-6">
+                    <h4 className="text-2xl font-semibold mb-4">{project.name}</h4>
+                    <p className="text-black/80 mb-4">{project.description}</p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tech.map((tech, techIndex) => (
+                        <span key={techIndex} className="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">{tech}</span>
+                      ))}
+                    </div>
+                    <Button
+                      variant="link"
+                      className="text-primary hover:text-primary-focus p-0 h-auto font-normal"
+                      onClick={() => window.open(project.url, '_blank')}
+                    >
+                      View Project <ChevronRight className="ml-1 h-4 w-4" />
+                    </Button> 
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
+        <section ref={techStacksRef} className="py-20 px-4 bg-black">
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-3xl font-bold mb-12 text-center">Tech Stacks</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {techStacks.map((stack, index) => (
+                <Card key={index} className="bg-black border-gray-700 text-whi">
+                  <CardContent className="p-6">
+                    <div className="flex items-center mb-4">
+                      <div className="text-white">{stack.icon}</div>
+                      <h4 className="text-xl font-semibold ml-4">{stack.name}</h4>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {stack.techs.map((tech, techIndex) => (
+                        <span key={techIndex} className="px-2 py-1 bg-gray-800 text-gray-100 text-xs rounded-full">{tech}</span>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        <section ref={contactRef} className="py-20 px-4 bg-white text-black">
+          <div className="max-w-4xl mx-auto text-center">
+            <h3 className="text-3xl font-bold mb-8">Get in Touch</h3>
+            <p className="text-lg mb-8">
+              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out to me through any of the following channels:
+            </p>
+            <div className="flex justify-center space-x-6 mb-2">
+              <a href="https://github.com/MaikeruDev" className="text-3xl hover:text-gray-300 transition-colors" aria-label="GitHub Profile"><FaGithub /></a>
+              <a href="https://www.linkedin.com/in/michael-prietl-93a6b625b/" className="text-3xl hover:text-gray-300 transition-colors" aria-label="LinkedIn Profile"><FaLinkedin /></a>
+              <a href="mailto:michael@prietl.com" className="text-3xl hover:text-gray-300 transition-colors" aria-label="Email Contact"><FaEnvelope /></a>
+            </div> 
+          </div>
+        </section>
+      </main>
+
+      <footer className="py-6 px-4 text-center text-sm bg-black">
+        <p>&copy; 2024 Michael Prietl. All rights reserved.</p>
+      </footer>
+    </div>
   )
 }
