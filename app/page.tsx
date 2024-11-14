@@ -6,7 +6,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
 import { ChevronRight, Code, Palette, Database, Server, Cpu, Globe } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import Link from 'next/link' 
+import Link from 'next/link'
 
 export default function MichaelPortfolio() {
   const aboutRef = useRef<HTMLDivElement>(null)
@@ -28,24 +28,24 @@ export default function MichaelPortfolio() {
 
   const projects = [
     { name: 'nonext.io', description: 'Lead developer for our company website, showcasing our top projects and services.', tech: ['Next.js', 'Tailwind CSS', 'Three.js'], url: 'https://nonext.io' },
-    { name: 'KanaBuddy', description: 'Designed and developed a modern, responsive website for learning hiragana and katakana.', tech: ['Next.js', 'Tailwind CSS', 'motion'], url: 'https://kanabuddy.nonext.io' }, 
+    { name: 'KanaBuddy', description: 'Designed and developed a modern, responsive website for learning hiragana and katakana.', tech: ['Next.js', 'Tailwind CSS', 'motion'], url: 'https://kanabuddy.nonext.io' },
   ]
 
   const techStacks = [
-    { 
-      name: 'Languages', 
-      icon: <Code className="w-6 h-6" />, 
-      techs: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'C#', 'Python', 'SASS', 'LUA'] 
+    {
+      name: 'Languages',
+      icon: <Code className="w-6 h-6" />,
+      techs: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'C#', 'Python', 'SASS', 'LUA']
     },
-    { 
-      name: 'Libraries & Frameworks', 
-      icon: <Globe className="w-6 h-6" />, 
-      techs: ['React', 'Next.js', 'Angular', 'Node.js', 'Express.js', 'Ionic', 'Unity', 'Three.js', 'Framer Motion', 'shadcn/ui'] 
+    {
+      name: 'Libraries & Frameworks',
+      icon: <Globe className="w-6 h-6" />,
+      techs: ['React', 'Next.js', 'Angular', 'Node.js', 'Express.js', 'Ionic', 'Unity', 'Three.js', 'Framer Motion', 'shadcn/ui']
     },
-    { 
-      name: 'Databases & ORM', 
-      icon: <Database className="w-6 h-6" />, 
-      techs: ['MySQL', 'Firebase', 'Prisma'] 
+    {
+      name: 'Databases & ORM',
+      icon: <Database className="w-6 h-6" />,
+      techs: ['MySQL', 'Firebase', 'Prisma']
     }
   ]
 
@@ -106,7 +106,7 @@ export default function MichaelPortfolio() {
               <a href="https://www.linkedin.com/in/michael-prietl-93a6b625b/" className="text-3xl hover:text-gray-300 transition-colors" aria-label="LinkedIn Profile"><FaLinkedin /></a>
               <a href="mailto:michael@prietl.com" className="text-3xl hover:text-gray-300 transition-colors" aria-label="Email Contact"><FaEnvelope /></a>
             </motion.div>
-          </div> 
+          </div>
         </section>
 
         <section ref={aboutRef} className="py-20 px-4 bg-white text-black">
@@ -114,17 +114,17 @@ export default function MichaelPortfolio() {
             <h3 className="text-3xl font-bold mb-8 text-center">About Me</h3>
             <div className="space-y-6">
               <p>
-              Hello! I'm Michi, a passionate web developer with a flair for crafting sleek, functional, and user-friendly digital experiences. With a strong foundation in front-end and back-end development, I specialize in building websites and applications that not only work flawlessly but also look great.
+                Hello! I'm Michi, a passionate web developer with a flair for crafting sleek, functional, and user-friendly digital experiences. With a strong foundation in front-end and back-end development, I specialize in building websites and applications that not only work flawlessly but also look great.
               </p>
               <p>
-              At nonext, I take pride in pushing the limits of what web development can achieve. I blend modern technologies with intuitive design principles to deliver solutions that are as enjoyable to use as they are powerful.
+                At nonext, I take pride in pushing the limits of what web development can achieve. I blend modern technologies with intuitive design principles to deliver solutions that are as enjoyable to use as they are powerful.
               </p>
               <p>
-              I'm always eager to learn and grow. Whether it’s mastering a new framework or experimenting with the latest design trends, I stay on top of the ever-evolving tech landscape to keep my projects cutting-edge.
+                I'm always eager to learn and grow. Whether it’s mastering a new framework or experimenting with the latest design trends, I stay on top of the ever-evolving tech landscape to keep my projects cutting-edge.
               </p>
               <p>
-              When I’m not coding or refining my designs, you’ll find me enjoying my other passions: I’m a big fan of cars, especially oldtimers, and love tinkering with or simply admiring them. I also like to kick back with some video games here and there—whether it's retro classics or the latest releases, gaming keeps me inspired and sharp.
-              </p> 
+                When I’m not coding or refining my designs, you’ll find me enjoying my other passions: I’m a big fan of cars, especially oldtimers, and love tinkering with or simply admiring them. I also like to kick back with some video games here and there—whether it's retro classics or the latest releases, gaming keeps me inspired and sharp.
+              </p>
             </div>
           </div>
         </section>
@@ -134,7 +134,7 @@ export default function MichaelPortfolio() {
             <h3 className="text-3xl font-bold mb-12 text-center">Skills & Expertise</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {skills.map((skill, index) => (
-                <Card key={index} className="bg-black border-gray-700 text-white">
+                <Card key={index} className="bg-black border-2 border-white/50 text-white hover:bg-white/10 transition-all">
                   <CardContent className="p-6">
                     <div className="flex items-center mb-4">
                       <div className="text-white">{skill.icon}</div>
@@ -168,7 +168,7 @@ export default function MichaelPortfolio() {
                       onClick={() => window.open(project.url, '_blank')}
                     >
                       View Project <ChevronRight className="ml-1 h-4 w-4" />
-                    </Button> 
+                    </Button>
                   </CardContent>
                 </Card>
               ))}
@@ -181,7 +181,7 @@ export default function MichaelPortfolio() {
             <h3 className="text-3xl font-bold mb-12 text-center">Tech Stacks</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {techStacks.map((stack, index) => (
-                <Card key={index} className="bg-black border-gray-700 text-whi">
+                <Card key={index} className="bg-black border-2 border-white/50 text-white hover:bg-white/10 transition-all">
                   <CardContent className="p-6">
                     <div className="flex items-center mb-4">
                       <div className="text-white">{stack.icon}</div>
@@ -189,7 +189,7 @@ export default function MichaelPortfolio() {
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {stack.techs.map((tech, techIndex) => (
-                        <span key={techIndex} className="px-2 py-1 bg-gray-800 text-gray-100 text-xs rounded-full">{tech}</span>
+                        <span key={techIndex} className="px-2 py-1 bg-white/20 text-gray-100 text-xs rounded-full">{tech}</span>
                       ))}
                     </div>
                   </CardContent>
@@ -209,7 +209,7 @@ export default function MichaelPortfolio() {
               <a href="https://github.com/MaikeruDev" className="text-3xl hover:text-gray-300 transition-colors" aria-label="GitHub Profile"><FaGithub /></a>
               <a href="https://www.linkedin.com/in/michael-prietl-93a6b625b/" className="text-3xl hover:text-gray-300 transition-colors" aria-label="LinkedIn Profile"><FaLinkedin /></a>
               <a href="mailto:michael@prietl.com" className="text-3xl hover:text-gray-300 transition-colors" aria-label="Email Contact"><FaEnvelope /></a>
-            </div> 
+            </div>
           </div>
         </section>
       </main>
