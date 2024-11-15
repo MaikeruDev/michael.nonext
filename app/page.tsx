@@ -114,16 +114,10 @@ export default function MichaelPortfolio() {
             <h3 className="text-3xl font-bold mb-8 text-center">About Me</h3>
             <div className="space-y-6">
               <p>
-                Hello! I'm Michi, a passionate web developer with a flair for crafting sleek, functional, and user-friendly digital experiences. With a strong foundation in front-end and back-end development, I specialize in building websites and applications that not only work flawlessly but also look great.
+              Hi, I’m Michael, a front-end developer who enjoys building clean and functional user interfaces. I work closely with Noel, a backend developer, to create seamless and effective digital projects. Together, we focus on delivering work that’s both user-friendly and reliable.
               </p>
               <p>
-                At nonext, I take pride in pushing the limits of what web development can achieve. I blend modern technologies with intuitive design principles to deliver solutions that are as enjoyable to use as they are powerful.
-              </p>
-              <p>
-                I'm always eager to learn and grow. Whether it’s mastering a new framework or experimenting with the latest design trends, I stay on top of the ever-evolving tech landscape to keep my projects cutting-edge.
-              </p>
-              <p>
-                When I’m not coding or refining my designs, you’ll find me enjoying my other passions: I’m a big fan of cars, especially oldtimers, and love tinkering with or simply admiring them. I also like to kick back with some video games here and there—whether it's retro classics or the latest releases, gaming keeps me inspired and sharp.
+              I’m always looking for ways to improve my skills, whether it’s by tackling new challenges or refining my techniques. In my free time, I like to code, drive my oldtimer, or hit the gym to stay active and clear my mind.
               </p>
             </div>
           </div>
