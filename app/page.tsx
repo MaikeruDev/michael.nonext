@@ -74,7 +74,7 @@ export default function MichaelPortfolio() {
           <div className="max-w-4xl mx-auto text-center relative z-10">
             <motion.img
               src="/maikeru.jpg"
-              alt="Michael Prietl"
+              alt="Profile photo of Michael Prietl"
               className="w-40 h-40 rounded-full mx-auto mb-8"
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
